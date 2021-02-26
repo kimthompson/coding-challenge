@@ -1,44 +1,69 @@
-//
 // This is only a SKELETON file for the 'Simple Linked List' exercise. It's been provided as a
 // convenience to get you started writing code faster.
-//
 
 export class Element {
-  constructor() {
-    throw new Error("Remove this statement and implement this function");
+  constructor(value) {
+    this._value = value
+    this._next = null
   }
 
   get value() {
-    throw new Error("Remove this statement and implement this function");
+    return this._value
   }
 
   get next() {
-    throw new Error("Remove this statement and implement this function");
+    return this._next
+  }
+
+  set next(element) {
+    this._next = element
   }
 }
 
 export class List {
-  constructor() {
-    throw new Error("Remove this statement and implement this function");
+  constructor(list = []) {
+    if (list.length === 0) this._head = null
+
+    list.forEach(item => {
+      this.add(new Element(item))
+    })
+
+    this._length = list.length
   }
 
   add(nextValue) {
-    throw new Error("Remove this statement and implement this function");
+    if (this._head === null) {
+      this._head = nextValue
+    } else {
+      nextValue.next = this._head
+      this._head = nextValue
+    }
+
+    this._length = this._length + 1
   }
 
   get length() {
-    throw new Error("Remove this statement and implement this function");
+    return this._length
   }
 
   get head() {
-    throw new Error("Remove this statement and implement this function");
+    return this._head
   }
 
   toArray() {
-    throw new Error("Remove this statement and implement this function");
+    let arr = []
+    let element = this._head
+
+    while (element) {
+      arr.push(element.value)
+      element = element.next
+    }
+
+    return arr
   }
 
   reverse() {
-    throw new Error("Remove this statement and implement this function");
+    // toArray traverses the list in the opposite order it was created and spits out an array, which can then be fed into the new Array constructor :B
+    return new List(this.toArray())
   }
 }
