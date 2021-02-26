@@ -1,4 +1,4 @@
-import { BinarySearchTree } from "./binary-search-tree";
+import { TreeNode as BinarySearchTree } from "./binary-search-tree";
 
 function recordAllData(bst) {
   const out = [];
@@ -13,15 +13,17 @@ describe("BinarySearchTree", () => {
   });
 
   describe("insert data at proper node", () => {
-    xtest("smaller number at left node", () => {
+    test("smaller number at left node", () => {
       const four = new BinarySearchTree(4);
+      console.log(four)
       four.insert(2);
+      console.log(four)
 
       expect(four.data).toEqual(4);
       expect(four.left.data).toEqual(2);
     });
 
-    xtest('same number at left node"', () => {
+    test('same number at left node"', () => {
       const four = new BinarySearchTree(4);
       four.insert(4);
 
@@ -29,7 +31,7 @@ describe("BinarySearchTree", () => {
       expect(four.left.data).toEqual(4);
     });
 
-    xtest("greater number at right node", () => {
+    test("greater number at right node", () => {
       const four = new BinarySearchTree(4);
       four.insert(5);
 
@@ -38,7 +40,7 @@ describe("BinarySearchTree", () => {
     });
   });
 
-  xtest("can create complex tree", () => {
+  test("can create complex tree", () => {
     const four = new BinarySearchTree(4);
     four.insert(2);
     four.insert(6);

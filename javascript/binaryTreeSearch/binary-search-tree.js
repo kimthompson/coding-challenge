@@ -1,23 +1,38 @@
-//
 // This is only a SKELETON file for the 'Binary Search Tree' exercise. It's been provided as a
 // convenience to get you started writing code faster.
 
-export class BinarySearchTree {
-  constructor() {}
+export class TreeNode {
+  constructor(data) {
+    this._data = data
+    this._left = null
+    this._right = null
+  }
 
   get data() {
-    throw new Error("Remove this statement and implement this function");
+    return this._data
   }
 
   get right() {
-    throw new Error("Remove this statement and implement this function");
+    return this._right
   }
 
   get left() {
-    throw new Error("Remove this statement and implement this function");
+    return this._left
   }
 
-  insert() {
-    throw new Error("Remove this statement and implement this function");
+  set right(element) {
+    this._right = element
+  }
+
+  set left(element) {
+    this._left = element
+  }
+
+  insert(element) {
+    if (this._data < element) {
+      this._right = new TreeNode(element) 
+    } else {
+      this._left = new TreeNode(element)
+    }
   }
 }
